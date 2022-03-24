@@ -1,0 +1,56 @@
+
+// Install by command line
+
+01.Switch to root user
+
+sudo su
+
+02.Now run the updates using the following command: 
+
+yum -y update
+
+03.Once completed, lets install and run an apache server
+
+03-1.Install the Apache web server: 
+
+yum install httpd
+
+03-2.When prompted, press "Y" to confirm.
+
+03-3.Start the web server 
+
+systemctl start httpd
+
+03-4.Now enable httpd: 
+
+systemctl enable httpd
+
+03-5.Check the web server status
+
+systemctl status httpd
+
+03-6.You can see the active status is running.
+
+04.You can test that your web server is properly installed and started by entering the public IPv4 address of your EC2 instance in the address bar of a web browser. If your web server is running, then you see the Apache test page. If you don't see the Apache test page, then verify whether you followed the above steps properly and check your inbound rules for the security group that you created.
+
+Make sure the URL Protocol is http not https.
+
+Syntax: http://<Your_Public_IPv4_Address>
+
+Example: http://3.80.149.180
+
+
+
+
+
+// Under the User data section, enter the following script, (which creates an HTML page served by Apache)
+
+
+#!/bin/bash
+sudo su
+yum update -y
+yum install httpd -y
+echo "<html><h1> Welcome to Whizlabs Server</h1><html>" >> /var/www/html/index.html
+systemctl start httpd
+systemctl enable httpd
+
