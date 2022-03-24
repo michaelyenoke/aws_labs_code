@@ -3,7 +3,7 @@
 
 01.Switch to root user
 
-sudo su
+# sudo su
 
 02.Now run the updates using the following command: 
 
