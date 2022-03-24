@@ -1,0 +1,23 @@
+After installing apache server, navigate to the html folder where we will put our html page to be published. Use command:
+
+cd /var/www/html/
+
+Create a sample test.html file using nano editor: 
+
+nano test.html
+
+Enter sample HTML content provided below in the file and save the file with Ctrl+X. Click Y to confirm the save, then press Enter to confirm filename.
+
+<HTML>Hi Whizlabs, I am a public page</HTML>
+
+Restart the web server by using the following command: 
+
+systemctl restart httpd
+
+Now enter the file name, i.e., /test.html after the public IPv4 Address which you got when you created the ec2 instance in the browser, and you can see your HTML content.
+
+Make sure URL Protocol is http not https.
+
+Syntax: http://<Your_Public_IPv4_Address>/test.html
+
+Sample URL: 52.90.56.138/test.html
